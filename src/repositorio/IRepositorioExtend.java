@@ -1,5 +1,7 @@
 package repositorio;
 
+import modelDomain.Cliente;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,8 @@ public interface IRepositorioExtend<T,ID> extends IRepositorio<T,ID>{
      * @throws IllegalArgumentException En caso de ser id nulo
      */
     Optional<T> findByIdOptional(ID id); //bucar con Optional
+
+    void deleteById(ID id);
 
     /**
      * Devuelve todas las instancias de tipo T

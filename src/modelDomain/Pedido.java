@@ -59,6 +59,10 @@ class Pedido {
          return cantidad;
      }
 
+    public List<PedidoLinea> getLineas() {
+        return lineas;
+    }
+
     //metodo en caso de que se quiera cambiar la cantidad
      public void cambiarCantidad(int nuevaCantidad) {
          if (nuevaCantidad <= 0){
@@ -66,6 +70,15 @@ class Pedido {
          }
          this.cantidad=nuevaCantidad;
      }
+
+     //metodo para añadir una linea al pedido
+
+    public void agregarLinea(PedidoLinea linea){
+        if (linea == null){
+            throw new IllegalArgumentException("La linea no tiene que ser nula");
+        }
+        lineas.add(linea);
+    }
 
 
 

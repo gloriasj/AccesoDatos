@@ -4,7 +4,7 @@ package modelDomain;
 * Un cliente puede tener mucbos pedidos relacion 1-N*/
 
 
- class Cliente {
+ public class Cliente {
      private  String id;
      private String dni;
      private String nombre;

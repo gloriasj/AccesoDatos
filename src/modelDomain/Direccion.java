@@ -1,19 +1,19 @@
 package modelDomain;
 /*Objeto valor: no tiene identidad propia; atributos y son inmutables
 * no es una entidad*/
-class Direccion {
-    private String direccion;
+public class Direccion {
+    private String calle;
     private String ciudad;
     private int cp;
 
-    public Direccion(String direccion, String ciudad, int cp){
-        if ( direccion == null|| direccion.isBlank()){
-            throw new IllegalArgumentException("La direccion no debe de estar vacia");
+    public Direccion(String calle, String ciudad, int cp){
+        if ( calle == null|| calle.isBlank()){
+            throw new IllegalArgumentException("La calle no debe de estar vacia");
         }
         if ( ciudad == null ||ciudad.isBlank()){
             throw new IllegalArgumentException("La ciudad no debe de estar vacia");
         }
-        this.direccion=direccion;
+        this.calle=calle;
         this.ciudad=ciudad;
         this.cp=cp;
     }
@@ -21,7 +21,7 @@ class Direccion {
     //Getters
 
     public String getDireccion() {
-        return direccion;
+        return calle;
     }
 
     public String getCiudad() {
