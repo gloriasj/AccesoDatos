@@ -1,6 +1,8 @@
 package repositorio;
 
-public interface IRepositorio {
+/*No se pueden modificar, son genéricas, es decir, funcionan con cualquier tipo de entidad*/
+
+public interface IRepositorio<T,ID> {
     /**
      * Devuelve el número de entidades.
      * @return  número de entidades

@@ -1,6 +1,9 @@
 package repositorio;
 
-public interface IRepositorioExtend {
+import java.util.List;
+import java.util.Optional;
+
+public interface IRepositorioExtend<T,ID> extends IRepositorio<T,ID>{
     /**
      * Devuelve la entidad T con identificador id.
      *
@@ -9,12 +12,12 @@ public interface IRepositorioExtend {
      *
      * @throws IllegalArgumentException En caso de ser id nulo
      */
-    Optional<T> findByIdOptional(ID id);
+    Optional<T> findByIdOptional(ID id); //bucar con Optional
 
     /**
      * Devuelve todas las instancias de tipo T
      *
      * @return    todas las instancias.
      * */
-    List<T> findAll();
+    List<T> findAllToList(); //devolver como lista
 }
