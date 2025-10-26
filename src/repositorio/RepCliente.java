@@ -8,9 +8,9 @@ import java.util.*;
 /*Repositorio para gestionar los clientes usando un fichero plano como almacenamiento*/
 public class RepCliente implements IRepositorioExtend<Cliente,String> {
         /*se utiliza el mapa para almacenar los clientes por id*/
-        private Map<String,Cliente> clientes = new HashMap<>();
+        public Map<String,Cliente> clientes = new HashMap<>();
         /*nombre del fichero*/
-        private String fichero = "clientes.txt";
+        public String fichero = "clientes.txt";
 
         /*Constructor del repositorio cliente donde cargará los datos desde el fichero cuando empiece*/
         public RepCliente(){
