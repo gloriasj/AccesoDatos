@@ -1,7 +1,7 @@
 package modelDomain;
 /*agregado
 * lista de linea de pedidos*/
- class PedidoLinea {
+public class PedidoLinea {
      private String producto;
      private int cantidad;
 

@@ -14,7 +14,7 @@ public interface IRepositorioExtend<T,ID> extends IRepositorio<T,ID>{
      *
      * @throws IllegalArgumentException En caso de ser id nulo
      */
-    Optional<T> findByIdOptional(ID id); //bucar con Optional
+    Optional<T> findByIdOptional(ID id); //buscar con Optional
 
     void deleteById(ID id);
 

@@ -6,7 +6,6 @@ import modelDomain.PedidoLinea;
 import java.io.*;
 import java.util.*;
 
-/*Repositorio para gestionar los pedidos usando un fichero plano como almacenamiento*/
 public class RepPedido implements IRepositorioExtend<Pedido, String> {
 
     /*Mapa para almacenar los pedidos por ID*/
@@ -58,19 +57,23 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
     public void guardarFichero() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(fichero))) {
             for (Pedido pedido : pedidos.values()) {
-                // Formato base: id,clienteId,producto,cantidad
-                StringBuilder sb = new StringBuilder();
-                sb.append(pedido.getId()).append(",")
-                        .append(pedido.getClienteId()).append(",")
-                        .append(pedido.getProducto()).append(",")
-                        .append(pedido.getCantidad());
+                // Crear una lista con datos basicos del pedido
+                List<String> partes = new ArrayList<>();
+                        partes.add(pedido.getId());
+                        partes.add(pedido.getClienteId());
+                        partes.add(pedido.getProducto());
+                        //convierte el int en un String porque el metdo utiliza String
+                        partes.add(String.valueOf(pedido.getCantidad()));
 
                 // Guardar líneas adicionales si las hay
                 for (PedidoLinea linea : pedido.getLineas()) {
-                    sb.append(",").append(linea.getProducto()).append(",").append(linea.getCantidad());
+                   partes.add(linea.getProducto());
+                   partes.add(String.valueOf(linea.getCantidad()));
                 }
 
-                w.write(sb.toString());
+                //unir los elementos con la coma
+                String linea= String.join(",", partes);
+                w.write(linea);
                 w.newLine();
             }
         } catch (IOException e) {
@@ -143,3 +146,4 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         return entity;
     }
 }
+
