@@ -20,7 +20,7 @@ public class Direccion {
 
     //Getters
 
-    public String getDireccion() {
+    public String getCalle() {
         return calle;
     }
 
@@ -31,4 +31,20 @@ public class Direccion {
     public int getCp() {
         return cp;
     }
+
+
+    //metodo para actualizar la direccion
+
+    public void cambiarCalle(String calleNueva){
+        if (calleNueva == null || calleNueva.isBlank()){
+            throw new IllegalArgumentException("Nombre de calle inválida");
+        }
+        this.calle = calleNueva;
 }
+
+    @Override
+    public String toString() {
+        return calle + " , " + ciudad + " , " + cp;
+    }
+}
+

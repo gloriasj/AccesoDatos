@@ -6,12 +6,11 @@ package modelDomain;
 
  public class Cliente {
      private  String id;
-     private String dni;
      private String nombre;
-     private String direccion; //objeto valor
+     private Direccion direccion; //objeto valor
 
      //Constructor
-     public Cliente(String id, String dni, String nombre, String direccion){
+     public Cliente(String id,String nombre, Direccion direccion){
 
          /*se lanza excepciones del id, nombre y direccion en caso de que si alguien
          * intenta crear un cliente sin datos válidos */
@@ -22,11 +21,10 @@ package modelDomain;
              throw new IllegalArgumentException("El nombre del cliente no puede estar vacio");
          }
 
-         if (direccion == null || direccion.isBlank()){
+         if (direccion == null){
              throw new IllegalArgumentException("La dirección no puede estar vacía");
          }
          this.id=id;
-         this.dni=dni;
          this.nombre=nombre;
          this.direccion=direccion;
      }
@@ -36,15 +34,11 @@ package modelDomain;
         this.id = id;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
 
@@ -52,15 +46,26 @@ package modelDomain;
         return id;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
-    public String getDireccion() {
+    public Direccion getDireccion() {
         return direccion;
     }
-}
+
+    //metodo para actualizar el nombre
+
+     public void cambiarNombre(String nuevoNombre){
+         if (nuevoNombre == null || nuevoNombre.isBlank()){
+             throw new IllegalArgumentException("Nombre inválido");
+         }
+
+         this.nombre = nuevoNombre;
+     }
+
+     @Override
+     public String toString() {
+         return id + " , " + nombre;
+     }
+ }

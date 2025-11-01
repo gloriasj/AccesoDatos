@@ -1,25 +1,24 @@
 package repositorio;
 
-import modelDomain.Pedido;
-import modelDomain.PedidoLinea;
+/*import modelDomain.Pedido;*/
 
 import java.io.*;
 import java.util.*;
 
-public class RepPedido implements IRepositorioExtend<Pedido, String> {
+/*public class RepPedido implements IRepositorioExtend<Pedido, String> {
 
-    /*Mapa para almacenar los pedidos por ID*/
+    //Mapa para almacenar los pedidos por ID/
     private Map<String, Pedido> pedidos = new HashMap<>();
 
-    /*Nombre del fichero*/
+    /*Nombre del fichero/
     private String fichero = "pedidos.txt";
 
-    /*Constructor: carga los pedidos desde el fichero al iniciar*/
+    /*Constructor: carga los pedidos desde el fichero al iniciar/
     public RepPedido() {
         cargarFichero();
     }
 
-    /*Carga los pedidos desde el fichero*/
+    /*Carga los pedidos desde el fichero/
     public void cargarFichero() {
         try (BufferedReader r = new BufferedReader(new FileReader(fichero))) {
             String linea;
@@ -34,17 +33,6 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
 
                     Pedido pedido = new Pedido(id, clienteId, producto, cantidad);
 
-                    // Si hay líneas adicionales (opcional)
-                    if (partes.length > 4) {
-                        for (int i = 4; i < partes.length; i += 2) {
-                            if (i + 1 < partes.length) {
-                                String prodLinea = partes[i];
-                                int cantLinea = Integer.parseInt(partes[i + 1]);
-                                pedido.agregarLinea(new PedidoLinea(prodLinea, cantLinea));
-                            }
-                        }
-                    }
-
                     pedidos.put(id, pedido);
                 }
             }
@@ -53,7 +41,7 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         }
     }
 
-    /*Guarda todos los pedidos en el fichero*/
+    /*Guarda todos los pedidos en el fichero/
     public void guardarFichero() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(fichero))) {
             for (Pedido pedido : pedidos.values()) {
@@ -81,13 +69,13 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         }
     }
 
-    /*Cuenta los pedidos guardados*/
+    /*Cuenta los pedidos guardados/
     @Override
     public long count() {
         return pedidos.size();
     }
 
-    /*Elimina un pedido por su ID*/
+    /*Elimina un pedido por su ID/
     @Override
     public void deleteById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
@@ -95,21 +83,21 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         guardarFichero();
     }
 
-    /*Elimina todos los pedidos*/
+    /*Elimina todos los pedidos/
     @Override
     public void deleteAll() {
         pedidos.clear();
         guardarFichero();
     }
 
-    /*Verifica si existe un pedido con un ID*/
+    /*Verifica si existe un pedido con un ID/
     @Override
     public boolean existsById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
         return pedidos.containsKey(id);
     }
 
-    /*Busca un pedido por ID*/
+    /*Busca un pedido por ID/
     @Override
     public Pedido findById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
@@ -118,26 +106,26 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         return pedido;
     }
 
-    /*Busca un pedido como Optional*/
+    /*Busca un pedido como Optional/
     @Override
     public Optional<Pedido> findByIdOptional(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
         return Optional.ofNullable(pedidos.get(id));
     }
 
-    /*Devuelve todos los pedidos en una lista*/
+    /*Devuelve todos los pedidos en una lista/
     @Override
     public List<Pedido> findAllToList() {
         return new ArrayList<>(pedidos.values());
     }
 
-    /*Devuelve todos los pedidos como Iterable*/
+    /*Devuelve todos los pedidos como Iterable/
     @Override
     public Iterable<Pedido> findAll() {
         return pedidos.values();
     }
 
-    /*Guarda un pedido (nuevo o actualizado)*/
+    /*Guarda un pedido (nuevo o actualizado)/
     @Override
     public <S extends Pedido> S save(S entity) {
         if (entity == null) throw new IllegalArgumentException("La entidad no puede ser nula");
@@ -145,5 +133,4 @@ public class RepPedido implements IRepositorioExtend<Pedido, String> {
         guardarFichero();
         return entity;
     }
-}
-
+}*/

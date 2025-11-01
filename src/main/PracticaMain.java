@@ -1,5 +1,7 @@
-import modelDomain.Pedido;
-import repositorio.RepPedido;
+package main;
+
+/*import modelDomain.Pedido;
+import repositorio.RepPedido;*/
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +10,7 @@ import java.util.Scanner;
 //aqui se ejecutará la aplicación
 /*se va hacer un menu en el que se creen los pedidos
  * se guarden, listarlos, buscarlos con optional, eliminarlos y contarlos*/
-public class PracticaMain {
+/*public class PracticaMain {
     public static void main(String[] args) {
         //Se va a crear una instancia del repositorio de pedidos
 
@@ -91,4 +93,4 @@ public class PracticaMain {
         }
 
     }
-}
+}*/
