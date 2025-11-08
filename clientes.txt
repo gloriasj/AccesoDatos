@@ -1,7 +1,2 @@
-1,Gloria,C/Don quijote , Madrid , 28020
-1,Gloria,C/Cuatro caminos , Madrid , 28020
-1,Gloria,C/Cuatro caminos , Madrid , 28020
-2,Cooper,C/Berruguete , Madrid , 28039
-1,Gloria,C/Cuatro caminos , Madrid , 28020
-2,Cooper,C/Berruguete , Madrid , 28039
-3,Pablo,C/Fuencarral , Madrid , 23453
+CO3,Aysel,c/tetuan , Barcelona , 28097
+CO2,Cooper,c/estrecho , Madrid , 28039

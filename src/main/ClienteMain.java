@@ -1,6 +1,6 @@
 package main;
 
-import modelDomain.Cliente;
+/*import modelDomain.Cliente;
 import modelDomain.Direccion;
 import repositorio.RepCliente;
 
@@ -11,7 +11,7 @@ import java.util.*;
 public class ClienteMain {
     public static void main(String[] args) {
 
-        /*RepCliente repo = new RepCliente();
+        RepCliente repo = new RepCliente();
 
         //se crea dos clientes y los vamos a guardar en el fichero
 
@@ -27,7 +27,7 @@ public class ClienteMain {
         List<Cliente> list = repo.findAllToList();
         for (Cliente c: list){
             System.out.println(c);
-        }*/
+        }
 
         /*Map<String,Cliente> clientes = new HashMap<>();
         Scanner teclado = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class ClienteMain {
         System.out.println("Todos los clientes: ");
         for (Cliente c : repo.findAllToList()){
             System.out.println(c);
-        }*/
+        }
 
 
         //MENU CON TODOS LOS METODOS IMPLEMENTADOS
@@ -212,4 +212,4 @@ public class ClienteMain {
             }
         }while (opcion !=10);
     }
-}
+}*/

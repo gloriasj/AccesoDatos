@@ -1,24 +1,24 @@
 package repositorio;
 
-/*import modelDomain.Pedido;*/
+import modelDomain.Pedido;
 
 import java.io.*;
 import java.util.*;
 
-/*public class RepPedido implements IRepositorioExtend<Pedido, String> {
+public class RepPedido implements IRepositorioExtend<Pedido, String> {
 
-    //Mapa para almacenar los pedidos por ID/
-    private Map<String, Pedido> pedidos = new HashMap<>();
+    //Mapa para almacenar los pedidos por ID
+    public Map<String, Pedido> pedidos = new HashMap<>();
 
-    /*Nombre del fichero/
-    private String fichero = "pedidos.txt";
+    //Nombre del fichero
+    public String fichero = "pedidos.txt";
 
-    /*Constructor: carga los pedidos desde el fichero al iniciar/
+    //Constructor: carga los pedidos desde el fichero al iniciar
     public RepPedido() {
         cargarFichero();
     }
 
-    /*Carga los pedidos desde el fichero/
+    //Carga los pedidos desde el fichero
     public void cargarFichero() {
         try (BufferedReader r = new BufferedReader(new FileReader(fichero))) {
             String linea;
@@ -31,7 +31,7 @@ import java.util.*;
                     String producto = partes[2];
                     int cantidad = Integer.parseInt(partes[3]);
 
-                    Pedido pedido = new Pedido(id, clienteId, producto, cantidad);
+                    Pedido pedido = new Pedido(id, clienteId);
 
                     pedidos.put(id, pedido);
                 }
@@ -41,26 +41,18 @@ import java.util.*;
         }
     }
 
-    /*Guarda todos los pedidos en el fichero/
+    //Guarda todos los pedidos en el fichero
     public void guardarFichero() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(fichero))) {
             for (Pedido pedido : pedidos.values()) {
                 // Crear una lista con datos basicos del pedido
                 List<String> partes = new ArrayList<>();
-                        partes.add(pedido.getId());
-                        partes.add(pedido.getClienteId());
-                        partes.add(pedido.getProducto());
-                        //convierte el int en un String porque el metdo utiliza String
-                        partes.add(String.valueOf(pedido.getCantidad()));
+                partes.add(pedido.getId());
+                partes.add(pedido.getClienteId());
 
-                // Guardar líneas adicionales si las hay
-                for (PedidoLinea linea : pedido.getLineas()) {
-                   partes.add(linea.getProducto());
-                   partes.add(String.valueOf(linea.getCantidad()));
-                }
 
                 //unir los elementos con la coma
-                String linea= String.join(",", partes);
+                String linea = String.join(",", partes);
                 w.write(linea);
                 w.newLine();
             }
@@ -69,13 +61,25 @@ import java.util.*;
         }
     }
 
-    /*Cuenta los pedidos guardados/
+    //metodo para vincular el clienteId con cliente y pedido
+
+    public List<Pedido> obtenerPorClienteId(String clienteId) {
+        List<Pedido> resultado = new ArrayList<>();
+        for (Pedido p : findAllToList()) {
+            if (p.getClienteId().equals(clienteId)) {
+                resultado.add(p);
+            }
+        }
+        return resultado;
+    }
+
+    //Cuenta los pedidos guardados
     @Override
     public long count() {
         return pedidos.size();
     }
 
-    /*Elimina un pedido por su ID/
+    //Elimina un pedido por su ID
     @Override
     public void deleteById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
@@ -83,21 +87,21 @@ import java.util.*;
         guardarFichero();
     }
 
-    /*Elimina todos los pedidos/
+    //Elimina todos los pedidos
     @Override
     public void deleteAll() {
         pedidos.clear();
         guardarFichero();
     }
 
-    /*Verifica si existe un pedido con un ID/
+    //Verifica si existe un pedido con un ID
     @Override
     public boolean existsById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
         return pedidos.containsKey(id);
     }
 
-    /*Busca un pedido por ID/
+    //Busca un pedido por ID
     @Override
     public Pedido findById(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
@@ -106,31 +110,32 @@ import java.util.*;
         return pedido;
     }
 
-    /*Busca un pedido como Optional/
+    //Busca un pedido como Optional
     @Override
     public Optional<Pedido> findByIdOptional(String id) {
         if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
         return Optional.ofNullable(pedidos.get(id));
     }
 
-    /*Devuelve todos los pedidos en una lista/
+    //Devuelve todos los pedidos en una lista
     @Override
     public List<Pedido> findAllToList() {
         return new ArrayList<>(pedidos.values());
     }
 
-    /*Devuelve todos los pedidos como Iterable/
+    //Devuelve todos los pedidos como Iterable
     @Override
     public Iterable<Pedido> findAll() {
         return pedidos.values();
     }
 
-    /*Guarda un pedido (nuevo o actualizado)/
+    //Guarda un pedido (nuevo o actualizado)
     @Override
     public <S extends Pedido> S save(S entity) {
-        if (entity == null) throw new IllegalArgumentException("La entidad no puede ser nula");
+        if (entity == null)
+            throw new IllegalArgumentException("La entidad no puede ser nula");
         pedidos.put(entity.getId(), entity);
         guardarFichero();
         return entity;
     }
-}*/
+}

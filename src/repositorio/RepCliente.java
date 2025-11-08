@@ -50,6 +50,21 @@ public class RepCliente implements IRepositorioExtend<Cliente, String> {
     }
 
 
+    //operacion para actualizar el nombre
+
+     public boolean actualizarNombre (String id, String nuevoNombre){
+        Optional<Cliente> clienteOptional = findByIdOptional(id);
+        if (clienteOptional.isPresent()){
+            Cliente c = clienteOptional.get();
+            c.cambiarNombre(nuevoNombre);
+            save(c);
+            return true;
+        }
+        return false;
+     }
+
+
+
     /*guardar todos los clientes en el fichero*/
     public void guardarFichero() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(fichero))) {
@@ -58,7 +73,6 @@ public class RepCliente implements IRepositorioExtend<Cliente, String> {
                         " , " + cliente.getDireccion().getCiudad() + " , " + cliente.getDireccion().getCp();
                 w.write(linea);
                 w.newLine();
-                ;
             }
         } catch (IOException e) {
             System.out.println("Error al guardar en fichero: " + e.getMessage());

@@ -6,7 +6,7 @@ package modelDomain;
 import java.util.ArrayList;
 import java.util.List;
 
-/*public class Pedido {
+public class Pedido {
     private String id;
     private String clienteId;
 
@@ -40,4 +40,4 @@ import java.util.List;
     }
 
 
-}*/
+}

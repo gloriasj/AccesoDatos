@@ -1,2 +1,9 @@
-34gg,23gg,zapatos,4
-123glo,glo34,zapatos,2
+P01,CO3
+PO2,CO2
+P03,CO3
+P05,CO4
+P04,C01
+P07,CO4
+P06,CO1
+P09,CO1
+P08,CO2

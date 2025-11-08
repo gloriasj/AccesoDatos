@@ -4,7 +4,11 @@ package modelDomain;
 * Un cliente puede tener mucbos pedidos relacion 1-N*/
 
 
- public class Cliente {
+import repositorio.RepPedido;
+
+import java.util.List;
+
+public class Cliente {
      private  String id;
      private String nombre;
      private Direccion direccion; //objeto valor
@@ -54,7 +58,7 @@ package modelDomain;
         return direccion;
     }
 
-    //metodo para actualizar el nombre
+    //actualizar el nombre
 
      public void cambiarNombre(String nuevoNombre){
          if (nuevoNombre == null || nuevoNombre.isBlank()){
@@ -63,6 +67,9 @@ package modelDomain;
 
          this.nombre = nuevoNombre;
      }
+
+
+
 
      @Override
      public String toString() {
