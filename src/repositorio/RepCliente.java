@@ -50,18 +50,6 @@ public class RepCliente implements IRepositorioExtend<Cliente, String> {
     }
 
 
-    //operacion para actualizar el nombre
-
-     public boolean actualizarNombre (String id, String nuevoNombre){
-        Optional<Cliente> clienteOptional = findByIdOptional(id);
-        if (clienteOptional.isPresent()){
-            Cliente c = clienteOptional.get();
-            c.cambiarNombre(nuevoNombre);
-            save(c);
-            return true;
-        }
-        return false;
-     }
 
 
 
@@ -78,6 +66,20 @@ public class RepCliente implements IRepositorioExtend<Cliente, String> {
             System.out.println("Error al guardar en fichero: " + e.getMessage());
         }
     }
+
+    //operacion para actualizar el nombre
+
+    public boolean actualizarNombre (String id, String nuevoNombre){
+        Optional<Cliente> clienteOptional = findByIdOptional(id);
+        if (clienteOptional.isPresent()){
+            Cliente c = clienteOptional.get();
+            c.cambiarNombre(nuevoNombre);
+            save(c);
+            return true;
+        }
+        return false;
+    }
+
 
     //Metodos que se han implementado (NO TOCAR)
 
